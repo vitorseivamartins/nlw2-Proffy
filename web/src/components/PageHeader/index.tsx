@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import { Link } from 'react-router-dom';
 
@@ -13,7 +13,14 @@ interface PageHeaderProps {
 }
 
 const PageHeader: React.FC<PageHeaderProps> = (props) => {
+    const [isdarkTheme, setDarkTheme] = useState(getInitialTheme);
+    function getInitialTheme() {
+        const isSavedThemeDark = localStorage.getItem('dark');
+        return isSavedThemeDark != null ? JSON.parse(isSavedThemeDark) : false;
+    }
+
     return (
+        <div id={isdarkTheme? "dark-theme" : "light-theme"}>
             <header className="page-header">
                 <div className="top-bar-container">
                     <Link to="/">
@@ -29,6 +36,7 @@ const PageHeader: React.FC<PageHeaderProps> = (props) => {
                     {props.children}
                 </div>               
             </header>
+        </div>
     );       
 }
 

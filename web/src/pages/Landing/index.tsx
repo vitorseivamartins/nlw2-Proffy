@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import BootstrapSwitchButton from 'bootstrap-switch-button-react';
 
 import logoImage from '../../assets/images/logo.svg';
 import landingImage from '../../assets/images/landing.svg';
@@ -14,50 +15,75 @@ import './styles.css';
 
 function Landing() {
     const [totalConnection, setTotalConnections] = useState(0);
+    const [isdarkTheme, setDarkTheme] = useState(getInitialTheme);
 
     useEffect(() => {
         api.get('/connections').then(response => {
             const { total } = response.data;
 
             setTotalConnections(total);
+
+            localStorage.setItem("dark", JSON.stringify(isdarkTheme));
         })
-    }, []);
+    }, [isdarkTheme]);
+
+    function getInitialTheme() {
+        const isSavedThemeDark = localStorage.getItem('dark');
+        return isSavedThemeDark != null ? JSON.parse(isSavedThemeDark) : false;
+    }
 
     return (
-        <div id="page-landing">
-            <div id="page-landing-content" className="container">
-                <div className="logo-container">
+        <div id={isdarkTheme? "dark-theme" : "light-theme"}>
+            <div id="page-landing" >            
+                <div id="page-landing-content" className="container">
+                    <div className="logo-container">
+                        <img 
+                            src={logoImage} 
+                            alt="Proffy"
+                        />
+                        <h2>Sua plataforma de estudos online.</h2>
+                    </div>
+
                     <img 
-                        src={logoImage} 
-                        alt="Proffy"
+                        src={landingImage} 
+                        alt="Plataforma de estudos" 
+                        className="hero-image"
                     />
-                    <h2>Sua plataforma de estudos online.</h2>
- 
+
+                    <div className="buttons-container">
+                        <Link to="study" className="study">
+                            <img src={studyIcon} alt="Estudar"/>
+                            Estudar
+                        </Link>
+                        <Link to="give-classes" className="give-classes">
+                            <img src={giveClassesIcon} alt="Dar aulas"/>
+                            Dar aulas    
+                        </Link>
+                    </div>
+
+                    <div className="right-bottom">
+                        <span className="total-connections">
+                            Total de { totalConnection } conexões já realizadas
+                            <img src={purpleHeartIcon} alt="Coração roxo"/>
+                        </span>
+
+                        <span className="theme-toogle">               
+                            <BootstrapSwitchButton                                
+                                checked={isdarkTheme} 
+                                offstyle="light" style="border"
+                               
+                                onlabel="Tema escuro"
+                                offlabel="Tema claro"
+                                
+                                onChange={() => {setDarkTheme(!isdarkTheme) }}
+                            />
+                        </span>
+                    </div>
+                    
                 </div>
-
-                <img 
-                    src={landingImage} 
-                    alt="Plataforma de estudos" 
-                    className="hero-image"
-                />
-
-                <div className="buttons-container">
-                    <Link to="study" className="study">
-                        <img src={studyIcon} alt="Estudar"/>
-                        Estudar
-                    </Link>
-                    <Link to="give-classes" className="give-classes">
-                        <img src={giveClassesIcon} alt="Dar aulas"/>
-                        Dar aulas    
-                    </Link>
-                </div>
-
-                <span className="total-connections">
-                    Total de { totalConnection } conexões já realizadas
-                    <img src={purpleHeartIcon} alt="Coração roxo"/>
-                </span>
             </div>
         </div>
+        
     )
 }
 

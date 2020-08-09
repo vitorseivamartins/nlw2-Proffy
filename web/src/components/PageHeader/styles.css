@@ -1,7 +1,17 @@
+#light-theme {
+    color: var(--color-text-in-primary);
+    background: var(--color-primary);  
+}
+
+#dark-theme {
+    color: white;
+    background: black;
+}
+
 .page-header {
     display: flex;
     flex-direction: column;
-    background-color:  var(--color-primary);
+    /* background-color:  var(--color-primary); */
 }
 
 .page-header .top-bar-container {
