@@ -1,4 +1,4 @@
-# nlw2-Proffy
+## nlw2-Proffy
 Project developed at Next Level Week #02 (Rocketseat - 2020), Proffy is a platform aimed to help encounters among students and professors.
 
 <p align="center">
@@ -20,6 +20,8 @@ Project developed at Next Level Week #02 (Rocketseat - 2020), Proffy is a platfo
 </div>
 
 ### The extra mile
+Implementation of a dark theme toogle on the main screen (Landing). The option is stored within localStorage and propagated to other pages.
+
 ![](./.github/dark-theme.gif)
 
 # :computer: Technologies
