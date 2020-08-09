@@ -34,10 +34,7 @@ Project made with:
 
 
 # :construction_worker: How to run
-```bash
-# Clone Repository
-$ git clone https://github.com/RafaelGoulartB/Proffy.git
-```
+
 ### 📦 Run API
 
 ```bash
