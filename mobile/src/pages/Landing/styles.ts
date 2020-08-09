@@ -1,9 +1,29 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
+
+    lightTheme: {
+        color: '#000',
+        backgroundColor: '#8257E5',
+        flex: 1,
+        justifyContent: 'center',
+    },
+    
+    darkTheme: {
+        color: '#FFF',
+        backgroundColor: '#000',
+        flex: 1,
+        justifyContent: 'center',
+    },
+
+    toogleText: {
+        maxWidth: 140,
+        marginTop: 40,
+    },
+
     container: {
         flex: 1,
-        backgroundColor: '#8257E5',
+        // backgroundColor: '#8257E5',
         justifyContent: 'center',
         padding: 40
     },
@@ -61,6 +81,17 @@ const styles = StyleSheet.create({
         lineHeight: 20,
         maxWidth: 140,
         marginTop: 40,
+    },
+
+    themeToogle: {   
+        flexDirection: 'row',
+        marginTop: 40,
+        justifyContent: 'flex-start',
+    },
+
+    themeToogleText: {
+        fontFamily: 'Poppins_400Regular',
+        color: '#d4c2ff',     
     }
 });
 

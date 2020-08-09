@@ -1,9 +1,24 @@
 import {StyleSheet} from 'react-native';
 
 const styles = StyleSheet.create({
+
+    lightTheme: {
+        color: '#000',
+        backgroundColor: '#8257E5',
+        flex: 1,
+        justifyContent: 'center',
+    },
+    
+    darkTheme: {
+        color: '#FFF',
+        backgroundColor: '#000',
+        flex: 1,
+        justifyContent: 'center',
+    },
+
     container: {
         padding: 40,
-        backgroundColor: '#8257e5',
+        // backgroundColor: '#8257e5',
     },
 
     topBar: {

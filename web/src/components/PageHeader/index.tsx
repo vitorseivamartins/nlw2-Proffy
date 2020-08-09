@@ -13,7 +13,7 @@ interface PageHeaderProps {
 }
 
 const PageHeader: React.FC<PageHeaderProps> = (props) => {
-    const [isdarkTheme, setDarkTheme] = useState(getInitialTheme);
+    const [isdarkTheme] = useState(getInitialTheme);
     function getInitialTheme() {
         const isSavedThemeDark = localStorage.getItem('dark');
         return isSavedThemeDark != null ? JSON.parse(isSavedThemeDark) : false;
