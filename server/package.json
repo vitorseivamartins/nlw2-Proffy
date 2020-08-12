@@ -7,7 +7,6 @@
     "start": "node server.js",
     "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
     "knex:migrate:rollback": "knex --knexfile knexfile.ts migrate:rollback",
-    "build": "webpack -p",
     "heroku-postbuild": "npm run build"
   },
   "devDependencies": {
