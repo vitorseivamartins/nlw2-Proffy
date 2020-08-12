@@ -5,9 +5,9 @@
   "license": "MIT",
   "scripts": {
     "start": "node server/src/server.ts",
-    "knex:migrate": "knex --knexfile knexfile.ts migrate:latest",
+    "knex:migrate": "knex --knexfile server/knexfile.ts migrate:latest",
     "knex:migrate:rollback": "knex --knexfile knexfile.ts migrate:rollback",
-    "heroku-postbuild": "npm run build && knex migrate:latest"
+    "heroku-postbuild": "npm run build && knex:migrate"
   },
   "devDependencies": {
     "@types/cors": "^2.8.7",
