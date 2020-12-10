@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import logoImage from '../../assets/images/logo.svg';
 import backLogo from '../../assets/images/icons/back.svg';
 
-import './styles.css';
+import './styles.css'; //teste
 
 interface PageHeaderProps {
     title: string;
